@@ -9,4 +9,8 @@ nuevas funcionalidades, aplicando el gestor de estado **BloC**.
 - [Cookbook: Usa ejemplos básicos de Flutter](https://docs.flutter.dev/cookbook)
 
 
+### Requermientos necesarios.
+
+- [Fluter: Instala y configura Flutter](https://docs.flutter.dev/get-started/install)
+- [Fluter: Lo básico de git](https://git-scm.com/docs)
 
