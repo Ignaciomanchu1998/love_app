@@ -13,6 +13,8 @@ dependencies:
   flutter_bloc: ^8.1.3
   go_router: ^13.0.1
   sqflite: ^2.3.0
+  animate_do: ^3.1.2
+  flutter_svg: ^2.0.9
 
 dev_dependencies:
   flutter_test:
@@ -21,3 +23,28 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+   - assets/images/
+   - assets/svg/
+
+  fonts:
+    - family: Bold
+      fonts:
+        - asset: assets/fonts/JosefinSans-Bold.ttf
+
+    - family: SemiBold
+      fonts:
+        - asset: assets/fonts/JosefinSans-SemiBold.ttf
+
+    - family: Medium
+      fonts:
+        - asset: assets/fonts/JosefinSans-Medium.ttf
+
+    - family: Regular
+      fonts:
+        - asset: assets/fonts/JosefinSans-Regular.ttf
+
+    - family: Light
+      fonts:
+        - asset: assets/fonts/JosefinSans-Light.ttf
