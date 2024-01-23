@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:ionicons/ionicons.dart';
 
 import '../../../shareds/shareds.dart';
@@ -40,8 +41,7 @@ class QuestionScreen extends StatelessWidget {
                 FadeInDown(
                   duration: const Duration(seconds: 1),
                   child: const TextCustomShared(
-                    text:
-                        'Es hora de que te prepares para la batalla, no será fácil, pero si lo logras, tendrás una gran recompensa.',
+                    text: 'Es hora de que te prepares para la batalla, no será fácil, pero si lo logras, tendrás una gran recompensa.',
                     fontSize: 27,
                     fontFamily: 'SemiBold',
                     color: Colors.white,
@@ -52,7 +52,7 @@ class QuestionScreen extends StatelessWidget {
                 FadeInUp(
                   duration: const Duration(seconds: 1),
                   child: ButtonDirectionShared(
-                    onPressed: () {},
+                    onPressed: () => context.go('/home'),
                     size: size,
                     pathIcon: 'assets/svg/arrow_01.svg',
                   ),
