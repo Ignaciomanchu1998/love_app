@@ -65,7 +65,7 @@ class __BodyState extends State<_Body> {
                 autocorrect: true,
                 controller: nameCtrl,
                 decoration: const InputDecoration(
-                  labelText: 'Nombre de tu Amor',
+                  labelText: 'Nombre de tu Amor *',
                 ),
                 onChanged: (value) => nameCtrl.text = value,
                 validator: (value) {
@@ -80,7 +80,7 @@ class __BodyState extends State<_Body> {
                 autocorrect: true,
                 controller: messageCtrl,
                 decoration: const InputDecoration(
-                  labelText: 'Mensaje para tu Amor',
+                  labelText: 'Mensaje para tu Amor *',
                 ),
                 onChanged: (value) => messageCtrl.text = value,
                 validator: (value) {
@@ -128,19 +128,6 @@ class __BodyState extends State<_Body> {
                   ),
                 ),
               ),
-              const SizedBox(height: 15),
-              SizedBox(
-                width: double.infinity,
-                child: TextButton(
-                  onPressed: () {},
-                  child: const TextCustomShared(
-                    text: 'Generar enlace',
-                    fontSize: 16,
-                    fontFamily: 'Regular',
-                    color: Colors.black54,
-                  ),
-                ),
-              )
             ],
           ),
         ),

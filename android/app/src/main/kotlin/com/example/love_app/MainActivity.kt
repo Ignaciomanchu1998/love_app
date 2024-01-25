@@ -1,4 +1,4 @@
-package com.example.love_app
+package com.dani_tech.loveapp
 
 import io.flutter.embedding.android.FlutterActivity
 

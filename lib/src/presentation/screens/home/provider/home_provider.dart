@@ -8,12 +8,16 @@ class HomeProvider extends ChangeNotifier {
   HomeProvider({required this.config});
 
   String? name;
+  String? message;
+  bool isWomen = true;
 
   Future<void> init() async {
     final resp = await config.get();
 
     if (resp.isNotEmpty) {
       name = resp.first.name;
+      message = resp.first.message;
+      isWomen = resp.first.isWomen;
     }
     notifyListeners();
   }

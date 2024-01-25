@@ -20,6 +20,11 @@ final router = GoRouter(
       builder: (context, state) => const HomeScreen(),
     ),
     GoRoute(
+      path: '/answer',
+      name: AnswerScreen.name,
+      builder: (context, state) => const AnswerScreen(),
+    ),
+    GoRoute(
       path: '/config',
       name: ConfigScreen.name,
       builder: (context, state) => const ConfigScreen(),

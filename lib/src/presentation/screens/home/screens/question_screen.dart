@@ -52,11 +52,11 @@ class QuestionScreen extends StatelessWidget {
                 FadeInUp(
                   duration: const Duration(seconds: 1),
                   child: ButtonDirectionShared(
-                    onPressed: () => context.go('/home'),
+                    onPressed: () => context.pushNamed('/home'),
                     size: size,
                     pathIcon: 'assets/svg/arrow_01.svg',
                   ),
-                )
+                ),
               ],
             ),
           ),
@@ -118,8 +118,7 @@ class _Mind extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const TextCustomShared(
-              text:
-                  'Si ella es programadora, dile lo siguiente: ¿Quieres ser el ; de mi código?',
+              text:  'Si ella es programadora, dile lo siguiente: ¿Quieres ser el ; de mi código?',
               fontSize: 23,
             ),
             const SizedBox(height: 10),

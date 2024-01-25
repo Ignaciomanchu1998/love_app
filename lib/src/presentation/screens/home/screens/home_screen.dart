@@ -103,7 +103,7 @@ class _BodyState extends State<_Body> {
                   child: FadeInDown(
                     duration: const Duration(seconds: 1),
                     child: TextCustomShared(
-                      text: '${provider.name ?? 'Hola'}, quieres ser mi novia?',
+                      text: '${provider.name ?? 'Hola'}, quieres ser mi ${provider.isWomen ? 'novia' : 'novio'}?',
                       fontSize: 40,
                       textAlign: TextAlign.center,
                       fontFamily: 'SemiBold',
@@ -116,7 +116,17 @@ class _BodyState extends State<_Body> {
                   child: FadeInUp(
                     duration: const Duration(seconds: 1),
                     child: ButtonShared(
-                      onPressed: () {},
+                      onPressed: () {
+                        openModal(context);
+
+                        Future.delayed(
+                          const Duration(milliseconds: 500),
+                          () {
+                            context.pop();
+                            context.go('/answer');
+                          },
+                        );
+                      },
                       size: widget.size,
                       message: 'Sí 😊',
                       height: 100,
@@ -154,6 +164,25 @@ class _BodyState extends State<_Body> {
             ),
           );
         },
+      ),
+    );
+  }
+
+  Future<void> openModal(BuildContext context) async {
+    return showAdaptiveDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => const AlertDialog.adaptive(
+        elevation: 0.1,
+        alignment: Alignment.bottomCenter,
+        title: TextCustomShared(
+          text: 'Procesando...',
+          fontSize: 18,
+          textAlign: TextAlign.center,
+        ),
+        content: LinearProgressIndicator(
+          minHeight: 1,
+        ),
       ),
     );
   }
