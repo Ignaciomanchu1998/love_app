@@ -18,7 +18,7 @@ dependencies:
   path_provider: ^2.1.2
   video_player: ^2.8.2
   just_audio: ^0.9.36
-  google_mobile_ads: ^4.0.0
+  syncfusion_flutter_pdfviewer: ^24.1.47
 
 dev_dependencies:
   flutter_test:

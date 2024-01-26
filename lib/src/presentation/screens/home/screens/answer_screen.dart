@@ -124,7 +124,9 @@ class _Body extends StatelessWidget {
       child: Stack(
         children: [
           ButtonInfo(
-            onPressed: () {},
+            onPressed: () => recomendationModal(
+              context: context,
+            ),
             alignment: Alignment.topCenter,
           ),
           ButtonInfo(
@@ -142,6 +144,63 @@ class _Body extends StatelessWidget {
     );
   }
 
+  Future<void> recomendationModal({
+    required BuildContext context,
+  }) async {
+    return showAdaptiveDialog(
+      context: context,
+      traversalEdgeBehavior: TraversalEdgeBehavior.leaveFlutterView,
+      builder: (context) => AlertDialog.adaptive(
+        insetAnimationDuration: const Duration(milliseconds: 100),
+        insetAnimationCurve: Curves.easeInCubic,
+        alignment: Alignment.topCenter,
+        title: const TextCustomShared(
+          text: 'Recomendaciones',
+          textAlign: TextAlign.center,
+          fontSize: 20,
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const TextCustomShared(
+              text:
+                  'Son recomendaciones personales, creo que te puede ser de ayuda a la hora de tomar decisiones.',
+              textAlign: TextAlign.center,
+              fontFamily: 'Regular',
+              fontSize: 15,
+            ),
+            const SizedBox(height: 20),
+            ButtonRecomendationShared(
+              onPressed: () => context.pushNamed(
+                '/book-recomendation',
+                extra:
+                    'https://www.3abnnicaragua.tv/Imagenes/Recursos/Libros/Libro20.pdf',
+              ),
+              message: 'Enamórate bien',
+            ),
+            const SizedBox(height: 10),
+            ButtonRecomendationShared(
+              onPressed: () => context.pushNamed(
+                '/book-recomendation',
+                extra:
+                    'https://itepeyac.interamerica.org/uploaded_assets/132286-20PerguntasQueDebesFormularATuNovia.pdf',
+              ),
+              message:
+                  'Preguntas que debes 20 formular a tu novi@ antes de casarte',
+            ),
+            const SizedBox(height: 20),
+            const TextCustomShared(
+              text: 'Les deseo mis éxitos',
+              textAlign: TextAlign.center,
+              fontFamily: 'Regular',
+              fontSize: 12,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Future<void> messageModal({
     required BuildContext context,
     required String name,
@@ -149,16 +208,38 @@ class _Body extends StatelessWidget {
   }) async {
     return showAdaptiveDialog(
       context: context,
+      traversalEdgeBehavior: TraversalEdgeBehavior.leaveFlutterView,
       builder: (context) => AlertDialog.adaptive(
+        insetAnimationDuration: const Duration(milliseconds: 100),
+        insetAnimationCurve: Curves.easeInCubic,
         alignment: Alignment.bottomCenter,
         title: TextCustomShared(
           text: 'Para ti $name',
           textAlign: TextAlign.center,
+          fontSize: 25,
         ),
         content: TextCustomShared(
           text: message,
           textAlign: TextAlign.center,
+          fontFamily: 'Regular',
+          fontSize: 20,
         ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextCustomShared(
+                  text: 'Entendido',
+                  color: Colors.indigo,
+                ),
+                SizedBox(width: 10),
+                Icon(Ionicons.close_outline)
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

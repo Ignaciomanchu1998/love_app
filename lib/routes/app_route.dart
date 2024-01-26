@@ -29,5 +29,10 @@ final router = GoRouter(
       name: ConfigScreen.name,
       builder: (context, state) => const ConfigScreen(),
     ),
+    GoRoute(
+      path: '/book-recomendation',
+      name: BookRecomendationScreen.name,
+      builder: (context, state) => const BookRecomendationScreen(),
+    ),
   ],
 );
