@@ -26,7 +26,7 @@ class InitialScreen extends StatelessWidget {
                   duration: const Duration(seconds: 1),
                   child: const Center(
                     child: TextCustomShared(
-                      text: 'Conquista🤔',
+                      text: 'Conquista 😍',
                       fontSize: 50,
                       color: Colors.white,
                     ),
