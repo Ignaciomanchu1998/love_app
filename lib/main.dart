@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:love_app/src/domain/repositories/config_repository.dart';
 import 'package:love_app/theme/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -8,7 +9,11 @@ import 'src/data/datasource/consumer/config_consumer.dart';
 import 'src/data/datasource/local/database.dart';
 import 'src/data/repository_impl/config_repository_impl.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  MobileAds.instance.initialize();
+
   runApp(
     MultiProvider(
       providers: [

@@ -1,7 +1,7 @@
 name: love_app
 description: "Proyecto de Amor App, a modo de prueba y aprendizaje"
 publish_to: 'none'
-version: 0.1.1
+version: 0.2.2
 
 environment:
   sdk: '>=3.2.4 <4.0.0'
@@ -19,6 +19,7 @@ dependencies:
   video_player: ^2.8.2
   just_audio: ^0.9.36
   syncfusion_flutter_pdfviewer: ^24.1.47
+  google_mobile_ads: ^4.0.0
 
 dev_dependencies:
   flutter_test:

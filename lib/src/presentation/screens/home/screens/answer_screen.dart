@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:love_app/ad_helper.dart';
 import 'package:provider/provider.dart';
 import 'package:video_player/video_player.dart';
 
@@ -21,9 +23,13 @@ class _AnswerScreenState extends State<AnswerScreen> {
   late VideoPlayerController controller;
   final AudioPlayer player = AudioPlayer();
 
+  // Interstitial Ad
+  InterstitialAd? interstitialAd;
+
   @override
   void initState() {
     loadVideoPlayer();
+    createInterstitialAd();
     super.initState();
   }
 
@@ -40,9 +46,40 @@ class _AnswerScreenState extends State<AnswerScreen> {
     controller.setVolume(0);
   }
 
+  // Rewarded interaction
+  void createInterstitialAd() {
+    InterstitialAd.load(
+      adUnitId: AdHelper.interstitialAdUnitId,
+      request: const AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (ad) {
+          interstitialAd = ad;
+        },
+        onAdFailedToLoad: (error) {
+          interstitialAd = null;
+        },
+      ),
+    );
+  }
+
+  void showInterstitialAd() {
+    if (interstitialAd == null) return;
+
+    interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(onAdDismissedFullScreenContent: (ad) {
+      ad.dispose();
+      createInterstitialAd();
+    }, onAdFailedToShowFullScreenContent: (ad, error) {
+      ad.dispose();
+      createInterstitialAd();
+    });
+    interstitialAd!.show();
+    interstitialAd = null;
+  }
+
   @override
   void dispose() {
     controller.dispose();
+    interstitialAd?.dispose();
     super.dispose();
   }
 
@@ -64,7 +101,12 @@ class _AnswerScreenState extends State<AnswerScreen> {
             backgroundColor: Colors.transparent,
             body: _Body(size: size),
             floatingActionButton: FloatingActionButton(
-              onPressed: () => context.go('/initial'),
+              onPressed: () {
+                logoutModal(
+                  context: context,
+                  onPressed: showInterstitialAd,
+                );
+              },
               backgroundColor: Colors.indigo,
               child: const Icon(
                 Ionicons.arrow_back_outline,
@@ -75,6 +117,73 @@ class _AnswerScreenState extends State<AnswerScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  Future<void> logoutModal({
+    required BuildContext context,
+    required VoidCallback onPressed,
+  }) {
+    return showAdaptiveDialog(
+      context: context,
+      traversalEdgeBehavior: TraversalEdgeBehavior.leaveFlutterView,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog.adaptive(
+          elevation: 0.1,
+          alignment: Alignment.bottomCenter,
+          insetAnimationDuration: const Duration(milliseconds: 100),
+          icon: Row(
+            children: [
+              const Spacer(),
+              IconButton.filledTonal(
+                onPressed: () => context.pop(),
+                icon: const Icon(Ionicons.close_outline),
+              ),
+            ],
+          ),
+          title: const TextCustomShared(
+            text: '¿Me ayudas a seguir creciendo?',
+            fontSize: 17,
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const SizedBox(height: 20),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: onPressed,
+                  child: const TextCustomShared(
+                    text: 'Ver anuncio',
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () => context.go('/initial'),
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    backgroundColor: Colors.transparent,
+                    side: const BorderSide(
+                      color: Colors.indigo,
+                      width: 0.5,
+                    ),
+                  ),
+                  child: const TextCustomShared(
+                    text: 'Ir al inicio',
+                    fontFamily: 'Regular',
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
