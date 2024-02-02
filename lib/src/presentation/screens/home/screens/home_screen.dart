@@ -28,10 +28,18 @@ class HomeScreen extends StatelessWidget {
             provider.init();
             return provider;
           },
-          child: Scaffold(
-            backgroundColor: Colors.transparent,
-            body: _Body(size: size),
-            floatingActionButton: const _FloatingActionButton(),
+          child: PopScope(
+            canPop: false,
+            onPopInvoked: (didPop) {
+              if (didPop) {
+                context.pop();
+              }
+            },
+            child: Scaffold(
+              backgroundColor: Colors.transparent,
+              body: SafeArea(child: _Body(size: size)),
+              floatingActionButton: const _FloatingActionButton(),
+            ),
           ),
         ),
       ],
@@ -103,7 +111,8 @@ class _BodyState extends State<_Body> {
                   child: FadeInDown(
                     duration: const Duration(seconds: 1),
                     child: TextCustomShared(
-                      text: '${provider.name ?? 'Hola'}, quieres ser mi ${provider.isWomen ? 'novia' : 'novio'}?',
+                      text:
+                          '${provider.name ?? 'Hola'}, quieres ser mi ${provider.isWomen ? 'novia' : 'novio'}?',
                       fontSize: 40,
                       textAlign: TextAlign.center,
                       fontFamily: 'SemiBold',

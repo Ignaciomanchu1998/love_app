@@ -109,8 +109,8 @@ class _Mind extends StatelessWidget {
         elevation: 0.1,
         alignment: Alignment.bottomCenter,
         title: const TextCustomShared(
-          text: '¡Pro Tip para Programadores 🤑! ',
-          fontSize: 28,
+          text: '¡Tip para Programadores 🤑! ',
+          fontSize: 24,
           textAlign: TextAlign.center,
         ),
         content: Column(
@@ -119,14 +119,15 @@ class _Mind extends StatelessWidget {
           children: [
             const TextCustomShared(
               text:  'Si ella es programadora, dile lo siguiente: ¿Quieres ser el ; de mi código?',
-              fontSize: 23,
+              fontSize: 19,
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 10),
             const TextCustomShared(
               text: 'Seguro que cae en tus brazos 🤣',
               fontSize: 15,
               fontFamily: 'Regular',
-              textAlign: TextAlign.start,
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 25),
             InkWell(
