@@ -150,15 +150,26 @@ class _AnswerScreenState extends State<AnswerScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               const SizedBox(height: 20),
-              SizedBox(
+              Container(
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: onPressed,
-                  child: const TextCustomShared(
-                    text: 'Ver anuncio',
-                    fontSize: 16,
-                    color: Colors.white,
+                height: 50,
+                decoration: const BoxDecoration(
+                  color: Colors.indigo,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(12),
                   ),
+                ),
+                child: InkWell(
+                  onTap: onPressed,
+                  borderRadius: BorderRadius.circular(12),
+                  child: const Center(
+                    child: TextCustomShared(
+                      text: 'Ver anuncio',
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontFamily: 'Regular',
+                    ),
+                  )
                 ),
               ),
               const SizedBox(height: 12),
@@ -170,8 +181,7 @@ class _AnswerScreenState extends State<AnswerScreen> {
                     elevation: 0,
                     backgroundColor: Colors.transparent,
                     side: const BorderSide(
-                      color: Colors.indigo,
-                      width: 0.5,
+                      color: Colors.white,
                     ),
                   ),
                   child: const TextCustomShared(
@@ -272,8 +282,7 @@ class _Body extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             const TextCustomShared(
-              text:
-                  'Son recomendaciones personales, creo que te puede ser de ayuda a la hora de tomar decisiones.',
+              text: 'Son recomendaciones personales, creo que te puede ser de ayuda a la hora de tomar decisiones.',
               textAlign: TextAlign.center,
               fontFamily: 'Regular',
               fontSize: 15,
@@ -282,8 +291,7 @@ class _Body extends StatelessWidget {
             ButtonRecomendationShared(
               onPressed: () => context.pushNamed(
                 '/book-recomendation',
-                extra:
-                    'https://www.3abnnicaragua.tv/Imagenes/Recursos/Libros/Libro20.pdf',
+                extra: 'https://www.3abnnicaragua.tv/Imagenes/Recursos/Libros/Libro20.pdf',
               ),
               message: 'Enamórate bien',
             ),
@@ -291,11 +299,9 @@ class _Body extends StatelessWidget {
             ButtonRecomendationShared(
               onPressed: () => context.pushNamed(
                 '/book-recomendation',
-                extra:
-                    'https://itepeyac.interamerica.org/uploaded_assets/132286-20PerguntasQueDebesFormularATuNovia.pdf',
+                extra: 'https://media4.egwwritings.org/pdf/es_CJE(LYL).pdf',
               ),
-              message:
-                  'Preguntas que debes 20 formular a tu novi@ antes de casarte',
+              message:'Cartas a Jóvenes Enamorados',
             ),
             const SizedBox(height: 20),
             const TextCustomShared(

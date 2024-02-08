@@ -111,9 +111,8 @@ class _BodyState extends State<_Body> {
                   child: FadeInDown(
                     duration: const Duration(seconds: 1),
                     child: TextCustomShared(
-                      text:
-                          '${provider.name ?? 'Hola'}, quieres ser mi ${provider.isWomen ? 'novia' : 'novio'}?',
-                      fontSize: 40,
+                      text: '${provider.name ?? 'Hola'}, ¿quieres que te dedique unas palabras?',
+                      fontSize: 35,
                       textAlign: TextAlign.center,
                       fontFamily: 'SemiBold',
                       color: Colors.white,
@@ -121,7 +120,7 @@ class _BodyState extends State<_Body> {
                   ),
                 ),
                 Align(
-                  alignment: const Alignment(0, 0.6),
+                  alignment: const Alignment(0, 0.5),
                   child: FadeInUp(
                     duration: const Duration(seconds: 1),
                     child: ButtonShared(
