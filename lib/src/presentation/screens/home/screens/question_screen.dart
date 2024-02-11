@@ -31,8 +31,8 @@ class QuestionScreen extends StatelessWidget {
                 FadeInDown(
                   duration: const Duration(seconds: 1),
                   child: const TextCustomShared(
-                    text: '¿Estás listo?',
-                    fontSize: 60,
+                    text: 'Para tu Amor',
+                    fontSize:50,
                     fontFamily: 'SemiBold',
                     color: Colors.white,
                   ),
@@ -41,7 +41,7 @@ class QuestionScreen extends StatelessWidget {
                 FadeInDown(
                   duration: const Duration(seconds: 1),
                   child: const TextCustomShared(
-                    text: 'Es hora de que te prepares para la batalla, no será fácil, pero si lo logras, tendrás una gran recompensa.',
+                    text: 'Dedícale unas palabras a tu amor, tu amor necesita saber de ti. Además, tenemos unos consejos para ti.',
                     fontSize: 27,
                     fontFamily: 'SemiBold',
                     color: Colors.white,
@@ -109,8 +109,8 @@ class _Mind extends StatelessWidget {
         elevation: 0.1,
         alignment: Alignment.bottomCenter,
         title: const TextCustomShared(
-          text: '¡Pro Tip para Programadores 🤑! ',
-          fontSize: 28,
+          text: 'Para Programadores',
+          fontSize: 24,
           textAlign: TextAlign.center,
         ),
         content: Column(
@@ -118,15 +118,17 @@ class _Mind extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const TextCustomShared(
-              text:  'Si ella es programadora, dile lo siguiente: ¿Quieres ser el ; de mi código?',
-              fontSize: 23,
+              text:  'Si ella es programadora, dile lo siguiente: Eres el punto y coma de mi vida, un programa perfecto, sin ningún coraje',
+              fontSize: 19,
+              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 10),
             const TextCustomShared(
-              text: 'Seguro que cae en tus brazos 🤣',
+              text: 'Info: Esta app se ha desarrollado a modo de hobby. Pero si te sirve, genial y agradecería tu ayuda.',
               fontSize: 15,
               fontFamily: 'Regular',
-              textAlign: TextAlign.start,
+              textAlign: TextAlign.center,
+              color: Colors.red,
             ),
             const SizedBox(height: 25),
             InkWell(

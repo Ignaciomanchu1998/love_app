@@ -51,6 +51,11 @@ class __BodyState extends State<_Body> {
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<HomeProvider>();
+
+    const style = TextStyle(
+      fontFamily: 'Medium',
+      fontSize: 17,
+    );
     return Center(
       child: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
@@ -64,6 +69,7 @@ class __BodyState extends State<_Body> {
               TextFormField(
                 autocorrect: true,
                 controller: nameCtrl,
+                style: style,
                 decoration: const InputDecoration(
                   labelText: 'Nombre de tu Amor *',
                 ),
@@ -79,6 +85,7 @@ class __BodyState extends State<_Body> {
               TextFormField(
                 autocorrect: true,
                 controller: messageCtrl,
+                style: style,
                 decoration: const InputDecoration(
                   labelText: 'Mensaje para tu Amor *',
                 ),
