@@ -1,7 +1,7 @@
 name: love_app
 description: "Deja que fluyan tus emociones y comparte momentos especiales a través de mensajes llenos de amor. Haz que cada día sea especial con nuestras funciones dedicadas a fortalecer los lazos entre tú y tu ser querido"
 publish_to: 'none'
-version: 1.2.3+5
+version: 1.2.3+6
 
 environment:
   sdk: '>=3.2.4 <4.0.0'
@@ -21,6 +21,7 @@ dependencies:
   sqflite: ^2.3.2
   syncfusion_flutter_pdfviewer: ^24.2.4
   video_player: ^2.8.2
+  webview_flutter: ^4.7.0
 
 dev_dependencies:
   flutter_test:
@@ -54,6 +55,7 @@ flutter:
    - assets/videos/
    - assets/music/
    - assets/svg/
+   - assets/files/
 
   fonts:
     - family: Bold

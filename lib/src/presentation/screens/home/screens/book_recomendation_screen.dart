@@ -18,8 +18,9 @@ class BookRecomendationScreen extends StatelessWidget {
         title: const TextCustomShared(text: 'Libros recomendados'),
         centerTitle: true,
       ),
-      body: SfPdfViewer.network(
+      body: SfPdfViewer.asset(
         params as String,
+        interactionMode: PdfInteractionMode.pan,
       ),
     );
   }

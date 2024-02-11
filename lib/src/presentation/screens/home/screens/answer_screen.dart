@@ -65,7 +65,8 @@ class _AnswerScreenState extends State<AnswerScreen> {
   void showInterstitialAd() {
     if (interstitialAd == null) return;
 
-    interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(onAdDismissedFullScreenContent: (ad) {
+    interstitialAd!.fullScreenContentCallback =
+        FullScreenContentCallback(onAdDismissedFullScreenContent: (ad) {
       ad.dispose();
       createInterstitialAd();
     }, onAdFailedToShowFullScreenContent: (ad, error) {
@@ -160,17 +161,16 @@ class _AnswerScreenState extends State<AnswerScreen> {
                   ),
                 ),
                 child: InkWell(
-                  onTap: onPressed,
-                  borderRadius: BorderRadius.circular(12),
-                  child: const Center(
-                    child: TextCustomShared(
-                      text: 'Ver anuncio',
-                      fontSize: 16,
-                      color: Colors.white,
-                      fontFamily: 'Regular',
-                    ),
-                  )
-                ),
+                    onTap: onPressed,
+                    borderRadius: BorderRadius.circular(12),
+                    child: const Center(
+                      child: TextCustomShared(
+                        text: 'Ver anuncio',
+                        fontSize: 16,
+                        color: Colors.white,
+                        fontFamily: 'Regular',
+                      ),
+                    )),
               ),
               const SizedBox(height: 12),
               SizedBox(
@@ -291,17 +291,17 @@ class _Body extends StatelessWidget {
             ButtonRecomendationShared(
               onPressed: () => context.pushNamed(
                 '/book-recomendation',
-                extra: 'https://www.3abnnicaragua.tv/Imagenes/Recursos/Libros/Libro20.pdf',
+                extra: 'assets/files/libro20.pdf',
               ),
               message: 'Enamórate bien',
             ),
             const SizedBox(height: 10),
             ButtonRecomendationShared(
               onPressed: () => context.pushNamed(
-                '/book-recomendation',
-                extra: 'https://media4.egwwritings.org/pdf/es_CJE(LYL).pdf',
+                '/book-webview',
+                extra: 'https://m.egwwritings.org/es/book/1713.258#258',
               ),
-              message:'Cartas a Jóvenes Enamorados',
+              message: 'Cartas a Jóvenes Enamorados',
             ),
             const SizedBox(height: 20),
             const TextCustomShared(

@@ -34,5 +34,10 @@ final router = GoRouter(
       name: BookRecomendationScreen.name,
       builder: (context, state) => const BookRecomendationScreen(),
     ),
+    GoRoute(
+      path: '/book-webview',
+      name: BookWebViewScreen.name,
+      builder: (context, state) => const BookWebViewScreen(),
+    ),
   ],
 );
